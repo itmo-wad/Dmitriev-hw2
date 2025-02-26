@@ -13,7 +13,7 @@ This is a Flask web application with user authentication and profile functionali
 - Profile page is only accessible to authenticated users (http://localhost:5000/profile)
 - Usernames and passwords are stored in MongoDB
 
-### Extended Part:
+### Advanced Part:
 - Registration of new users
 - Password hashing for security
 - Logout functionality
