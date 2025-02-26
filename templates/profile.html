@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Здравствуйте, {{ user.username }}!</h1>
+
+        <div class="profile-card">
+            <img src="{{ url_for('static', filename='uploads/' + user.profile_pic) }}" alt="Фото профиля" class="profile-pic">
+
+            {% if user.name %}
+                <h2>{{ user.name }}</h2>
+            {% endif %}
+
+            {% if user.bio %}
+                <p>{{ user.bio }}</p>
+            {% endif %}
+
+            <p><strong>Дата регистрации:</strong> {{ user.date_joined.strftime('%d.%m.%Y') }}</p>
+        </div>
+
+        <div class="actions">
+            <a href="{{ url_for('update_profile') }}" class="btn">Обновить профиль</a>
+            <a href="{{ url_for('change_password') }}" class="btn">Изменить пароль</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Выйти</a>
+        </div>
+    </div>
+</body>
+</html>
